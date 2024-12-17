@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Fact Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        #fact-container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="fact-container">
+        <h1>Fun Fact Generator</h1>
+        <p id="fact">Click the button to see a fun fact!</p>
+        <button onclick="showFact()">Generate Fact</button>
+    </div>
+
+    <script>
+        const facts = [
+            "Honey never spoils.",
+            "Octopuses have three hearts.",
+            "A group of flamingos is called a 'flamboyance'.",
+            "Bananas are berries, but strawberries aren't.",
+            "A rhinoceros' horn is made of hair."
+        ];
+
+        function showFact() {
+            const fact = facts[Math.floor(Math.random() * facts.length)];
+            document.getElementById('fact').innerText = fact;
+        }
+    </script>
+</body>
+</html>
