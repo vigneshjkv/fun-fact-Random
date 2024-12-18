@@ -20,6 +20,10 @@
             border-radius: 8px;
             background-color: white;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+        }
+        #fact-container:hover {
+            transform: scale(1.05);
         }
         button {
             padding: 10px 20px;
@@ -30,9 +34,26 @@
             color: white;
             border-radius: 5px;
             margin-top: 20px;
+            transition: background-color 0.3s ease;
         }
         button:hover {
             background-color: #0056b3;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        #fact {
+            opacity: 0;
+            transition: opacity 2s ease;
         }
     </style>
 </head>
@@ -54,7 +75,12 @@
 
         function showFact() {
             const fact = facts[Math.floor(Math.random() * facts.length)];
-            document.getElementById('fact').innerText = fact;
+            const factElement = document.getElementById('fact');
+            factElement.style.opacity = 0;
+            setTimeout(() => {
+                factElement.innerText = fact;
+                factElement.style.opacity = 1;
+            }, 200);
         }
     </script>
 </body>
